@@ -1,9 +1,9 @@
 # Retail Customer Sales -- Exploratory Data Analysis (EDA)
 
 A Python-based Exploratory Data Analysis project on retail customer
-sales transactions from 2023--2024. The project covers data quality
-assessment, cleaning, statistical profiling, outlier detection, feature
-engineering, visualisation, and business analysis.
+sales transactions from 2023--2024. This project focuses on data quality
+assessment, data cleaning, statistical profiling, outlier detection,
+feature engineering, visualisation, and business-oriented analysis.
 
 ## Table of Contents
 
@@ -19,30 +19,31 @@ engineering, visualisation, and business analysis.
 -   [Feature Engineering](#feature-engineering)
 -   [Key Business Findings](#key-business-findings)
 -   [Data Validation](#data-validation)
--   [How to Run](#how-to-run-the-project)
--   [Deliverables](#project-deliverables)
+-   [How to Run the Project](#how-to-run-the-project)
+-   [Project Files](#project-files)
 -   [Author](#author)
 
 ## Project Overview
 
-Retail businesses generate information about customers, products,
+Retail businesses generate data related to customers, products,
 transactions, payments, sales, costs, profits, deliveries, and customer
-satisfaction. Analysing these records can reveal patterns in product
-performance, regional contribution, customer segments, and payment
-preferences.
+satisfaction. Analysing this information can help identify sales
+patterns, understand customer segments, compare product and regional
+performance, and support informed business decisions.
 
-This project performs EDA on a retail customer sales dataset covering
-2023--2024. The original dataset contains **7,084 rows and 24 columns**.
-After cleaning and feature engineering, the final analytical dataset
-contains **7,000 rows and 27 columns**.
+This project performs Exploratory Data Analysis (EDA) on a retail
+customer sales dataset covering 2023--2024. The original dataset
+contains **7,084 rows and 24 columns**. After data cleaning and feature
+engineering, the final analytical dataset contains **7,000 rows and 27
+columns**.
 
-The work is implemented in a Python Jupyter Notebook. The repository
-includes the original and cleaned datasets, visual outputs, an insights
-report, and a project synopsis.
+The project is implemented in Python using a Jupyter Notebook. It
+includes the original dataset, cleaned dataset, visual outputs, an
+insights report, and a project synopsis.
 
 ## Objectives
 
--   Inspect dataset structure, columns, data types, and summary
+-   Inspect the dataset structure, columns, data types, and summary
     information.
 -   Identify missing values, duplicate records, inconsistent categories,
     and invalid values.
@@ -55,21 +56,22 @@ report, and a project synopsis.
     method.
 -   Create additional analytical features through feature engineering.
 -   Answer business questions using grouping and aggregation.
--   Present findings through charts, a notebook, and written reports.
+-   Present findings through charts and a written insights report.
 
 ## Dataset Description
 
--   **Dataset:** `retail_customer_sales_dataset.csv`
--   **Period:** 2023--2024
--   **Original dimensions:** 7,084 rows × 24 columns
--   **Cleaned dimensions:** 7,000 rows × 27 columns
+  Attribute                   Details
+  --------------------------- -------------------------------------
+  Dataset file                `retail_customer_sales_dataset.csv`
+  Period covered              2023--2024
+  Original dimensions         7,084 rows × 24 columns
+  Final cleaned dimensions    7,000 rows × 27 columns
+  Original dataset location   `data/`
+  Cleaned dataset location    `outputs/`
 
 The dataset contains transaction-level retail information, including
 customer details, product information, order and delivery dates, payment
 information, sales, cost, profit, ratings, and satisfaction details.
-
-The original dataset is stored in `data/`. The cleaned dataset is stored
-in `outputs/`.
 
 ## Tools and Libraries
 
@@ -97,43 +99,45 @@ in `outputs/`.
 
 ## Repository Structure
 
+The repository is organised as follows:
+
 ``` text
 EDA_Project_2026M01410010/
 │
-├── .venv/                                      # Local Python environment (not committed)
 ├── data/
-│   └── retail_customer_sales_dataset.csv       # Original dataset
+│   └── retail_customer_sales_dataset.csv
+│
 ├── notebooks/
-│   └── EDA_Analysis.ipynb                       # Main EDA notebook
+│   └── EDA_Analysis.ipynb
+│
 ├── outputs/
 │   ├── age_boxplot.png
+│   ├── average_customer_rating_by_category.png
+│   ├── cleaned_retail_customer_sales.csv
 │   ├── income_boxplot.png
+│   ├── numerical_histograms.png
 │   ├── profit_boxplot.png
 │   ├── sales_boxplot.png
-│   ├── numerical_histograms.png
-│   ├── sales_by_product_category.png
-│   ├── sales_by_region.png
 │   ├── sales_by_customer_segment.png
 │   ├── sales_by_payment_method.png
-│   ├── average_customer_rating_by_category.png
-│   └── cleaned_retail_customer_sales.csv       # Cleaned dataset
+│   ├── sales_by_product_category.png
+│   └── sales_by_region.png
+│
 ├── reports/
-│   ├── 2026M01410010_Ajay_Pratap_Singh_Chauhan_Insights_Report_Updated.docx
-│   └── 2026M01410010_Retail_Customer_Sales_EDA_Project_Synopsis.docx
+│   └── Insights_Report.docx
+│
 ├── .gitignore
+├── 2026M01410010_Ajay_Pratap_Singh_Chauhan_Retail_Customer_Sales_EDA_Project_Synopsis.docx
 └── README.md
 ```
 
-The `.venv/` directory is for the local development environment and
-should not be uploaded to GitHub. The `.gitignore` file should exclude
-the virtual environment, Python cache files, Jupyter checkpoints, and
-local environment files.
-
 ## Analysis Workflow
 
+The project follows these stages:
+
 1.  **Data loading and inspection:** Load the CSV and inspect
-    dimensions, columns, data types, summaries, missing values, and
-    duplicates.
+    dimensions, columns, data types, descriptive summaries, missing
+    values, and duplicates.
 2.  **Data quality audit:** Identify incomplete, duplicated,
     inconsistent, invalid, and date-related records.
 3.  **Data cleaning:** Apply documented cleaning and standardisation
@@ -153,15 +157,17 @@ local environment files.
 
 ## Data Cleaning
 
-The cleaning process documented in the notebook includes: - Removing
-exact duplicate rows. - Standardising inconsistent `Gender` and `Region`
-labels. - Treating `Age` values outside 18--100 as invalid. - Treating
-`Discount` values outside 0--1 as invalid. - Imputing missing numerical
-values using the median. - Filling missing `Satisfaction_Level` values
-using the mode. - Parsing date fields and checking delivery dates
-against order dates. - Handling missing delivery dates using the median
-delivery interval. - Rechecking duplicates after categorical
-standardisation.
+The cleaning process documented in the notebook includes:
+
+-   Removing exact duplicate rows.
+-   Standardising inconsistent `Gender` and `Region` labels.
+-   Treating `Age` values outside the range 18--100 as invalid.
+-   Treating `Discount` values outside the range 0--1 as invalid.
+-   Imputing missing numerical values using the median.
+-   Filling missing `Satisfaction_Level` values using the mode.
+-   Parsing date fields and checking delivery dates against order dates.
+-   Handling missing delivery dates using the median delivery interval.
+-   Rechecking duplicate rows after categorical standardisation.
 
 Potential outliers are not automatically removed. They are retained
 where there is no separate evidence that the values are erroneous, since
@@ -172,12 +178,21 @@ behaviour.
 
 ### Numerical Analysis
 
-Descriptive statistics are calculated for eight numerical variables:
-`Age`, `Income`, `Quantity`, `Unit_Price`, `Discount`, `Sales`, `Cost`,
-and `Profit`.
+Descriptive statistics are calculated for the following eight numerical
+variables:
 
-The measures include mean, median, mode, standard deviation, variance,
-quartiles, Interquartile Range (IQR), P90, and P95.
+-   `Age`
+-   `Income`
+-   `Quantity`
+-   `Unit_Price`
+-   `Discount`
+-   `Sales`
+-   `Cost`
+-   `Profit`
+
+The statistical measures include mean, median, mode, standard deviation,
+variance, quartiles, Interquartile Range (IQR), 90th percentile (P90),
+and 95th percentile (P95).
 
 ### Univariate Analysis
 
@@ -188,13 +203,13 @@ categorical distributions for `Gender`, `Region`, `Product_Category`,
 
 ## Outlier Detection
 
-Potential outliers are identified using the IQR method:
+Potential outliers are identified using the Interquartile Range method:
 
 -   `IQR = Q3 − Q1`
 -   Lower bound = `Q1 − 1.5 × IQR`
 -   Upper bound = `Q3 + 1.5 × IQR`
 
-Outlier counts calculated on the final 7,000-row dataset:
+The outlier counts calculated on the final 7,000-row dataset are:
 
   Variable     IQR Outlier Count
   ---------- -------------------
@@ -203,7 +218,7 @@ Outlier counts calculated on the final 7,000-row dataset:
   Sales                      632
   Profit                     640
 
-These counts represent observations outside the IQR thresholds; they do
+These counts represent observations outside the IQR thresholds. They do
 not automatically indicate incorrect data.
 
 ## Feature Engineering
@@ -248,16 +263,17 @@ Five business questions are answered using group-wise aggregation:
   average customer rating?            
   -----------------------------------------------------------------------
 
-### Additional Segment Comparison
+### Additional Customer Segment Analysis
 
-The notebook also compares total sales by customer segment. This is
-different from average transaction sales. Corporate has the highest
-**average transaction sales**, while Consumer has the highest
-**aggregate segment sales** in the analysed dataset.
+The notebook also compares total sales by customer segment. This is a
+different measure from average transaction sales. Corporate has the
+highest **average transaction sales**, while Consumer has the highest
+**aggregate segment sales** in the analysed dataset. These findings
+should be interpreted separately.
 
 ## Data Validation
 
-The final cleaned dataset passed these checks:
+The final cleaned dataset passed the following checks:
 
   Validation Check                                    Result
   -------------------------------- -------------------------
@@ -273,7 +289,7 @@ The final cleaned dataset passed these checks:
 
 ### 1. Clone the Repository
 
-Replace `YOUR-USERNAME` with your GitHub username.
+Replace `YOUR-USERNAME` with your GitHub username:
 
 ``` bash
 git clone https://github.com/YOUR-USERNAME/retail-customer-sales-eda.git
@@ -289,10 +305,10 @@ python -m venv .venv
 Activate it on Windows:
 
 ``` bash
-.venv\\Scripts\\activate
+.venv\Scripts\activate
 ```
 
-### 3. Install Required Libraries
+### 3. Install the Required Libraries
 
 ``` bash
 pip install pandas numpy matplotlib seaborn missingno jupyter
@@ -300,26 +316,32 @@ pip install pandas numpy matplotlib seaborn missingno jupyter
 
 ### 4. Open and Run the Notebook
 
-Open the project folder in Visual Studio Code. Open
-`notebooks/EDA_Analysis.ipynb`, select the Python interpreter from the
-project's `.venv` environment, and run the notebook cells in order.
+1.  Open the cloned project folder in Visual Studio Code.
+2.  Open `notebooks/EDA_Analysis.ipynb`.
+3.  Select the Python interpreter from the environment you created.
+4.  Run the notebook cells in order.
 
-**Note:** The notebook uses relative file paths based on the project
-folder structure. Keep `data/`, `notebooks/`, and `outputs/` in their
-documented locations when running it.
+**Important:** The notebook uses relative paths based on the repository
+layout. Keep the `data/`, `notebooks/`, and `outputs/` folders in the
+locations shown above. If you run the notebook from a different working
+directory, its relative file paths may need adjustment.
 
-## Project Deliverables
+## Project Files
 
--   **Jupyter Notebook:** Complete EDA workflow and code.
--   **Original Dataset:** Source retail customer sales CSV.
--   **Cleaned Dataset:** Validated dataset containing 7,000 rows and 27
-    columns.
--   **Visual Outputs:** Histograms, box plots, and business analysis
-    charts.
--   **Insights Report:** Statistical results, visual analysis, business
-    findings, and validation.
--   **Project Synopsis:** Problem, objectives, requirements,
-    methodology, and outcomes.
+-   **`notebooks/EDA_Analysis.ipynb`** --- Main notebook containing the
+    data loading, cleaning, analysis, visualisation, and validation
+    workflow.
+-   **`data/retail_customer_sales_dataset.csv`** --- Original source
+    dataset.
+-   **`outputs/cleaned_retail_customer_sales.csv`** --- Final cleaned
+    dataset.
+-   **`outputs/*.png`** --- Generated box plots, histograms, and
+    business analysis charts.
+-   **`reports/Insights_Report.docx`** --- Project insights report.
+-   **`2026M01410010_Ajay_Pratap_Singh_Chauhan_Retail_Customer_Sales_EDA_Project_Synopsis.docx`**
+    --- Formal project synopsis.
+-   **`.gitignore`** --- Specifies files and folders excluded from Git
+    tracking.
 
 ## Author
 
@@ -329,5 +351,5 @@ Roll Number: `2026M01410010`
 
 ------------------------------------------------------------------------
 
-*This repository contains an academic data analytics project prepared as
-part of the HCLTech Career Shaper Program.*
+*Academic project prepared as part of the HCLTech Career Shaper
+Program.*
